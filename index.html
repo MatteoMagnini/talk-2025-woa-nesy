@@ -32,7 +32,7 @@
 <p><a href="mailto:giovanni.ciatto@unibo.it">Giovanni Ciatto</a> and <a href="mailto:matteo.magnini@unibo.it">Matteo Magnini</a>
 <br>Dipartimento di Informatica — Scienza e Ingegneria (DISI), Sede di Cesena,
 <br> Alma Mater Studiorum—Università di Bologna</p>
-<p><span class="hint">(last built on: 2025-06-13)</span></p>
+<p><span class="hint">(last built on: 2025-06-16)</span></p>
 </section><section>
 <h2 id="link-to-these-slides">Link to these slides</h2>
 <p><a href="https://MatteoMagnini.github.io/talk-2025-woa-nesy/">https://MatteoMagnini.github.io/talk-2025-woa-nesy/</a></p>
@@ -59,6 +59,114 @@
     qrCode.append(document.getElementById("MzM5NGIyYmJjZTE4MjZlMDhhM2YxYmVkOTMyYmYwOGI4YTRlMzRjMWVjMTNiZDdhNDc2Yjk1ZWQwMDMzYjk5Yw=="));
 </script>
 <p><a href="?print-pdf&amp;pdfSeparateFragments=false"><i class="fa fa-print" aria-hidden="true"></i> printable version</a></p>
+
+</section>
+</section>
+
+<section data-noprocess="" data-shortcode-slide="" id="background">
+  
+<h1 id="background">Background</h1>
+<p>Quick overview on symbolic vs. sub-symbolic AI</p>
+</section><section>
+<h2 id="overview-on-ai">Overview on AI</h2>
+
+
+
+
+
+
+<img src="./images/ai-map.svg" alt="AI map" style="width: 100%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+
+<ul>
+<li>wide field of research, with many <em>sub-fields</em></li>
+<li>each sub-field has its own relevant <em>tasks</em> (problems) …</li>
+<li>… and each task comes with many useful <em>methods</em> (algorithms)</li>
+</ul>
+</section><section>
+<h2 id="symbolic-vs-sub-symbolic-ai">Symbolic vs. Sub-symbolic AI</h2>
+<p>Two broad categories of AI approaches:</p>
+
+
+
+
+
+
+<img src="./images/ai-map2.svg" alt="AI map with a focus on symbolic vs sub-symbolic" style="width: 100%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="examples-of-symbolic-ai-pt-1">Examples of Symbolic AI (pt. 1)</h2>
+<ul>
+<li><strong>Logic programming</strong>: SLD resolution (e.g., Prolog)</li>
+<li><strong>Knowledge representation</strong>: Semantic Web (e.g., OWL), Description Logics (e.g., ALC)</li>
+<li><strong>Automated reasoning</strong>: Theorem proving, Model checking</li>
+<li><strong>Planning</strong>: STRIPS, PDDL</li>
+</ul>
+</section><section>
+<h2 id="examples-of-symbolic-ai-pt-2">Examples of Symbolic AI (pt. 2)</h2>
+<h3 id="logic-programming-with-sld-resolution">Logic programming with SLD resolution</h3>
+<img src="./images/proof-tree.png" alt="Example of SLD resolution on a simple theory" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-symbolic-ai-pt-3">Examples of Symbolic AI (pt. 3)</h2>
+<h3 id="ontology-definition-in-owl">Ontology definition in OWL</h3>
+<img src="./images/ontology-example.png" alt="Example of ontology definition in OWL" style="width: 80%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-symbolic-ai-pt-4">Examples of Symbolic AI (pt. 4)</h2>
+<h3 id="model-checking-as-opposed-to-testing">Model-checking (as opposed to testing)</h3>
+<img src="./images/model-checking-vs-testing.webp" alt="Main differences among model-checking and testing for verifying computational systems" style="width: 80%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-symbolic-ai-pt-5">Examples of Symbolic AI (pt. 5)</h2>
+<h3 id="planning-in-strips">Planning in STRIPS</h3>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><img src="./images/planning.png" alt="Example of start vs goal state + state branching" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</div>
+<div class="col "><br>
+<h4 id="available-actions">Available actions</h4>
+<ul>
+<li><code>grab(X)</code>: grabs block <code>X</code> from the table</li>
+<li><code>put(X)</code>: puts block <code>X</code> on the table</li>
+<li><code>stack(X, Y)</code>: stacks block <code>X</code> on top of block <code>Y</code></li>
+<li><code>unstack(X, Y)</code>: un-stacks block <code>X</code> from block <code>Y</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="examples-of-sub-symbolic-ai-pt-1">Examples of Sub-symbolic AI (pt. 1)</h2>
+<ul>
+<li>
+<p><strong>Machine learning</strong>: supervised, unsupervised, and reinforcement learning</p>
+<ul>
+<li><em>Supervised</em> learning: fitting a discrete (classification) or a continuous function (regression) from examples</li>
+<li><em>Unsupervised</em> learning: clustering, dimensionality reduction</li>
+<li><em>Reinforcement</em> learning: learning a policy to maximize a reward signal, via simulation</li>
+</ul>
+</li>
+<li>
+<p><strong>Probabilistic reasoning</strong>: Bayesian networks, Markov models, probabilistic logic programming</p>
+</li>
+</ul>
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-2">Examples of Sub-symbolic AI (pt. 2)</h2>
+<h3 id="supervised-learning">Supervised learning</h3>
+<img src="./images/supervised.png" alt="Overview on the supervised learning process" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-3">Examples of Sub-symbolic AI (pt. 3)</h2>
+<h3 id="supervised-learning--classification-vs-regression-12">Supervised learning – Classification vs. Regression (1/2)</h3>
+<p>Data separation vs. curve fitting:</p>
+<img src="./images/classification-vs-regression1.png" alt="Classification vs. Regression: separation vs. curve fitting" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-4">Examples of Sub-symbolic AI (pt. 4)</h2>
+<h3 id="supervised-learning--classification-vs-regression-22">Supervised learning – Classification vs. Regression (2/2)</h3>
+<p>Focus on the target feature:</p>
+<img src="./images/classification-vs-regression2.png" alt="Classification vs. Regression: finite vs. continous target feature" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
 
 </section>
 </section>
