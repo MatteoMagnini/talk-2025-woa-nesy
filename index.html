@@ -136,6 +136,28 @@
 
 </section>
 </section><section>
+<h2 id="what-do-these-symbolic-approaches-have-in-common">What do these <em>symbolic</em> approaches have in common?</h2>
+<ul>
+<li>
+<p><strong>Structured representations</strong>: knowledge (I/O data) is represented in a structured, formal way (e.g., logic formulas, ontologies)</p>
+</li>
+<li>
+<p><strong>Algorithmic manipulation of representations</strong>: each approach relies on algorithms that manipulate these structured representations following exact rules</p>
+</li>
+<li>
+<p><strong>Crisp semantics</strong>: the meaning of the representations is well-defined, and the algorithms produce exact results</p>
+<ul>
+<li>representations are either <em>well-formed or not</em>, algorithms rely on rules which are either <em>applicable or not</em></li>
+</ul>
+</li>
+<li>
+<p><strong>Model-driven</strong>: algorithms may commonly work in zero- or few-shot settings, humans must commonly model and encode knowledge in the target structure</p>
+</li>
+<li>
+<p><strong>Clear computational complexity</strong>: the decidability, complexity, and tractability of the algorithms are well understood</p>
+</li>
+</ul>
+</section><section>
 
 
 <section data-shortcode-section="">
@@ -166,7 +188,106 @@
 <h2 id="examples-of-sub-symbolic-ai-pt-4">Examples of Sub-symbolic AI (pt. 4)</h2>
 <h3 id="supervised-learning--classification-vs-regression-22">Supervised learning – Classification vs. Regression (2/2)</h3>
 <p>Focus on the target feature:</p>
-<img src="./images/classification-vs-regression2.png" alt="Classification vs. Regression: finite vs. continous target feature" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+<img src="./images/classification-vs-regression2.png" alt="Classification vs. Regression: finite vs. continuous target feature" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-5">Examples of Sub-symbolic AI (pt. 5)</h2>
+<h3 id="unsupervised-learning--clustering">Unsupervised learning – Clustering</h3>
+<img src="./images/clustering.png" alt="Example of the clustering task" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-6">Examples of Sub-symbolic AI (pt. 6)</h2>
+<h3 id="unsupervised-learning--reinforcement-learning-metaphor">Unsupervised learning – Reinforcement learning (metaphor)</h3>
+<img src="./images/reinforcement.svg" alt="Main idea behind reinforcement learning" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</section><section>
+<h2 id="examples-of-sub-symbolic-ai-pt-7">Examples of Sub-symbolic AI (pt. 7)</h2>
+<h3 id="reinforcement-learning--reinforcement-learning-policy">Reinforcement learning – Reinforcement learning (policy)</h3>
+<img src="./images/q-table.png" alt="The goal of reinforcement learning is to estimate a policy, i.e. a function (e.g. a table) estimating the expected reward per each state–action pair" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+
+</section>
+</section><section>
+<h2 id="what-do-these-sub-symbolic-approaches-have-in-common">What do these <em>sub-symbolic</em> approaches have in common?</h2>
+<ul>
+<li>
+<p><strong>Numeric representations</strong>: knowledge (I/O data) is represented in a less structured way, often as vectors/matrices/tensors of numbers</p>
+</li>
+<li>
+<p><strong>Differentiable manipulation of representations</strong>: algorithms rely on mathematical operations involving these numeric representations, most-commonly undergoing some optimization process</p>
+<ul>
+<li>e.g., sum, product, max, min, etc.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fuzzy/continuous semantics</strong>: representations are from continuous spaces, where similarities and distances are defined in a continuous way, and algorithms may yield fuzzy results</p>
+</li>
+<li>
+<p><strong>Data-driven</strong> + <strong>Usage vs. training</strong>: algorithms are often trained on data, to be later re-used on other data</p>
+<ul>
+<li>usage is commonly impractical or impossible without training</li>
+</ul>
+</li>
+<li>
+<p><strong>Unclear computational complexity</strong>: strong reliance on greedy or time-limited optimization methods, lack of theoretical guarantees on the quality of the results</p>
+</li>
+</ul>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-1">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 1)</h2>
+<h3 id="local-vs-distributed-representations">Local vs. Distributed Representations</h3>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><img src="./images/local-distributed-representations.png" alt="Local vs. Distributed Representations of a bunch of animals" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</div>
+<div class="col "><br>
+<ul>
+<li>
+<p><strong>Local</strong> $\approx$ “symbolic”: each symbol has a clear, distinct meaning</p>
+<ul>
+<li>e.g. <code>"bear"</code> is a symbol denoting a crisp category (either the animal is a bear or not)</li>
+</ul>
+</li>
+<li>
+<p><strong>Distributed</strong> $\approx$ “non-symbolic”: symbols do not have a clear meaning per se, but the whole representation does</p>
+<ul>
+<li>e.g. <code>"swim"</code> is fuzzy capability: one animal may be (un)able to swim to some extent</li>
+</ul>
+</li>
+</ul>
+<br>
+<span class="fragment ">
+  <blockquote>
+<p>Let’s say we need to represent $N$ classes, how many columns would the tables have?</p></blockquote>
+</span>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-2">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 2)</h2>
+<h3 id="what-is-a-symbol-after-all-arent-numbers-symbols-too">What is a “symbol” after all? Aren’t numbers symbols too?</h3>
+<p>According to <a href="https://doi.org/10.1007/978-3-642-76070-9_6">Tim van Gelder in 1990</a>:</p>
+<blockquote>
+<p><strong>Symbolic</strong> representations of knowledge</p>
+<ul>
+<li>involve a <em>set of symbols</em></li>
+<li>which can be <em>combined</em> (e.g., concatenated) in (possibly) infinitely many ways,</li>
+<li>following precise <em>syntactical rules</em>,</li>
+<li>where both elementary symbols and any admissible combination of them can be <em>assigned with meaning</em></li>
+</ul></blockquote>
+</section><section>
+<h2 id="why-sub-symbolic-instead-of-non-symbolic-or-just-numerical">Why “<em>Sub</em>-symbolic” instead of “Non-symbolic” or just “Numerical”?</h2>
+<ul>
+<li>
+<p>There exist approaches where symbols are combined with numbers, e.g.:</p>
+<ul>
+<li><strong>Probabilistic logic programming</strong>: where logic statements are combined with probabilities</li>
+<li><strong>Fuzzy logic</strong>: where logic statements are combined with degrees of truth</li>
+<li><strong>Bayesian networks</strong>: a.k.a. graphical models, where nodes are symbols and edges are conditional dependencies with probabilities, e.g.
+<img src="./images/bn.png" alt="Example of a Bayesian network"></li>
+</ul>
+</li>
+<li>
+<p>These approaches are <em>not purely symbolic</em>, but they are <em>not purely numeric</em> either, so we call the overall category <strong>“sub-symbolic”</strong></p>
+</li>
+</ul>
 
 </section>
 </section>
