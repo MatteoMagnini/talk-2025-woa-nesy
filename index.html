@@ -32,7 +32,18 @@
 <p><a href="mailto:giovanni.ciatto@unibo.it">Giovanni Ciatto</a> and <a href="mailto:matteo.magnini@unibo.it">Matteo Magnini</a>
 <br>Dipartimento di Informatica — Scienza e Ingegneria (DISI), Sede di Cesena,
 <br> Alma Mater Studiorum—Università di Bologna</p>
-<p><span class="hint">(last built on: 2025-06-17)</span></p>
+<br>
+<br>Mini-school @ WOA 2025, the 26th Workshop From Objects to Agents
+<br>2nd July 2025, Trento, Italy
+<br>
+<span class="hint">
+<br>This talk is partially supported by the “ENGINES — ENGineering INtElligent Systems around intelligent agent technologies”
+<br>project funded by the Italian MUR program “PRIN 2022” under grant number 20229ZXBZM.</span>
+<br>
+<img src="./images/engines_logo.jpg" alt="ENGINES project logo" style="width: 70px; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+<br>
+<br>
+<span class="hint">(last built on: 2025-06-19)</span>
 </section><section>
 <h2 id="link-to-these-slides">Link to these slides</h2>
 <p><a href="https://MatteoMagnini.github.io/talk-2025-woa-nesy/">https://MatteoMagnini.github.io/talk-2025-woa-nesy/</a></p>
@@ -377,6 +388,1076 @@
 <h1 id="machine-learning-101">Machine Learning 101</h1>
 </section><section>
 <p>TBD</p>
+</section>
+
+<section data-noprocess="" data-shortcode-slide="" id="ske">
+  
+<h1 id="symbolic-knowledge-extraction-ske">Symbolic Knowledge Extraction (SKE)</h1>
+<p>How to extract symbolic knowledge from sub-symbolic predictors</p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="definition-and-motivation-pt-1">Definition and Motivation (pt. 1)</h2>
+<blockquote>
+<p>any <em>algorithmic procedure</em> accepting trained sub-symbolic predictors as input and producing <em>symbolic</em> knowledge as output, so that the extracted knowledge reflects the behaviour of the predictor with high <em>fidelity</em>.</p></blockquote>
+</section><section>
+<h2 id="definition-and-motivation-pt-2">Definition and Motivation (pt. 2)</h2>
+<ul>
+<li>
+<p><strong>Explainable AI (XAI)</strong>: SKE methods are often used to provide explanations for the decisions made by sub-symbolic predictors, making them more interpretable and understandable to humans (a.k.a. <em>post-hoc explainability</em>)</p>
+<ul>
+<li><em>local explanations</em>: explanations for individual predictions</li>
+<li><em>global explanations</em>: explanations for the overall behaviour of the predictor</li>
+</ul>
+</li>
+<li>
+<p><strong>Knowledge discovery</strong>: SKE methods can help discover patterns and relationships in the data that may not be immediately apparent, thus providing insights into the underlying processes</p>
+</li>
+<li>
+<p><strong>Model compression</strong>: SKE methods can simplify complex sub-symbolic models by extracting symbolic rules that approximate their behaviour, thus reducing the model’s size and complexity</p>
+</li>
+</ul>
+</section><section>
+<h2 id="explainability-vs-interpretability">Explainability vs Interpretability</h2>
+<p>They are <em>not</em> synonyms in spite of the fact that they are often used interchangeably!</p>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 style="text-align: center; color: blue">
+Explanation
+</h3>
+<ul>
+<li>
+<p>elicits <em>relevant aspects</em> of objects (to ease their interpretation)</p>
+</li>
+<li>
+<p>it is an operation that transform poorly interpretable objects into <em>more interpretable</em> ones</p>
+</li>
+<li>
+<p>search of a <em>surrogate</em> interpretable model</p>
+</li>
+</ul>
+</div>
+<div class="col "><h3 style="text-align: center; color: blue">
+Interpretation
+</h3>
+<ul>
+<li>
+<p>binds objects with <em>meaning</em> (what the human mind does)</p>
+</li>
+<li>
+<p>it is <em>subjective</em></p>
+</li>
+<li>
+<p>it does not need to be measurable, only <em>comparisons</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="concepts">Concepts</h2>
+<p>Main entities and how to extract symbolic knowledge from sub-symbolic predictors</p>
+</section><section>
+<h2 id="entities">Entities</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 style="text-align: center; color: blue">
+Sub-symbolic predictor
+</h3>
+<img src="./images/nn-iris.png" alt="Example of a neural network trained on the Iris dataset" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</div>
+<div class="col "><h3 style="text-align: center; color: blue">
+Symbolic knowledge
+</h3>
+<div style="margin-top: 10vh; margin-left: 5vw;">
+<table>
+  <thead>
+      <tr>
+          <th>Logic Rule</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Class = setosa ← PetalWidth ≤ 1.0</td>
+      </tr>
+      <tr>
+          <td>Class = versicolor ← PetalLength &gt; 4.9 ∧ <br><div style="margin-left: 15vw;"> SepalWidth ∈ [2.9, 3.2] </div></td>
+      </tr>
+      <tr>
+          <td>Class = versicolor ← PetalWidth &gt; 1.6</td>
+      </tr>
+      <tr>
+          <td>Class = virginica ← SepalWidth ≤ 2.9</td>
+      </tr>
+      <tr>
+          <td>Class = virginica ← SepalLength ∈ [5.4, 6.3]</td>
+      </tr>
+      <tr>
+          <td>Class = virginica ← PetalWidth ∈ [1.0, 1.6]</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="how-ske-works">How SKE works</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 style="text-align: center; color: blue">
+Decompositional SKE
+</h3>
+<blockquote>
+<p>if the method <em>needs</em> to inspect (even partially) the internal parameters of the underlying black-box predictor, e.g., neuron biases or connection weights for NNs, or support vectors for SVMs</p></blockquote>
+</div>
+<div class="col "><h3 style="text-align: center; color: blue">
+Pedagogical SKE
+</h3>
+<blockquote>
+<p>if the algorithm <em>does not need</em> to take into account any internal parameter, but it can extract symbolic knowledge by only relying on the predictor’s outputs.</p></blockquote>
+</div>
+</div>
+</div>
+
+</section>
+</section><section>
+<h2 id="overview">Overview</h2>
+<p>SKE methods: theory and practice</p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="cart-pt-1">CART (pt. 1)</h2>
+<p>Classification and regression trees (cf. <a href="https://doi.org/10.1201/9781315139470">Breiman et al., 1984</a>)</p>
+</section><section>
+<h2 id="cart-pt-2">CART (pt. 2)</h2>
+<img src="./images/dt-kyphosis.png" alt="Example of a decision tree" style="width: 80%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+<p>An example decision tree estimating the probability of kyphosis after spinal surgery, given the <em>age</em> of the patient and the vertebra at which surgery was <em>start</em> ed (rf. <a href="https://en.wikipedia.org/w/index.php?title=Decision_tree_learning">wiki:dt-learning</a>).
+Notice that all decision trees subtend a partition of the input space, and that those trees themselves provide intelligible representations of <em>how</em> predictions are attained.</p>
+</section><section>
+<h2 id="cart-pt-3">CART (pt. 3)</h2>
+<ol>
+<li>
+<p>generate a <em>synthetic</em> dataset by using the predictions of the sub-symbolic predictor</p>
+</li>
+<li>
+<p><em>train</em> a decision tree on the synthetic dataset</p>
+</li>
+<li>
+<p>compute the <em>fidelity</em> and repeat step 2 until satisfied</p>
+</li>
+<li>
+<p>[optional] rewrite the tree as a set of symbolic <em>rules</em></p>
+</li>
+</ol>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="practical-example-with-cart">Practical example with CART</h2>
+<p>TBD</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="taxonomy-of-ske-methods-pt-1">Taxonomy of SKE methods (pt. 1)</h2>
+<img src="./images/ske-taxonomy.svg" alt="Taxonomy of SKE methods" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+</section><section>
+<h2 id="taxonomy-of-ske-methods-pt-2">Taxonomy of SKE methods (pt. 2)</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "></div>
+<div class="col "><h3 style="color: blue">
+Target AI task
+</h3>
+<ul>
+<li>
+<p><em>classification</em><br> $f: 𝒳 ⊆ ℝⁿ → 𝒴 s.t. |𝒴| = k$</p>
+</li>
+<li>
+<p><em>regression</em><br> $f: 𝒳 ⊆ ℝⁿ → 𝒴 ⊆ ℝᵐ$</p>
+</li>
+</ul>
+</div>
+<div class="col "><h3 style="color: blue">
+Input data
+</h3>
+<ul>
+<li>
+<p><em>binary</em><br> $𝒳 ≡ {0, 1}ⁿ$</p>
+</li>
+<li>
+<p><em>discrete</em><br> $𝒳 ∈ {x₁, …, xₙ}ⁿ$</p>
+</li>
+<li>
+<p><em>continuous</em><br> $𝒳 ⊆ ℝⁿ$</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="taxonomy-of-ske-methods-pt-3">Taxonomy of SKE methods (pt. 3)</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 style="text-align: center; color: blue">
+Shape
+</h3>
+<ul>
+<li>
+<p><em>rule list</em>, ordered sequences of if-then-else rules</p>
+</li>
+<li>
+<p><em>decision tree</em>, hierarchical set of if-then-else rules involving a comparison among a variable and a constant</p>
+</li>
+<li>
+<p><em>decision table</em>, 2D tables summarising decisions for each possible assignment of the input variables</p>
+</li>
+</ul>
+</div>
+<div class="col "><h3 style="text-align: center; color: blue">
+Expressiveness
+</h3>
+<ul>
+<li>
+<p><em>propositional</em>, boolean statements + logic connectives, including arithmetic comparisons among variables and constants</p>
+</li>
+<li>
+<p><em>fuzzy</em>, hierarchical set of if-then-else rules involving a comparison among a variable and a constant</p>
+</li>
+<li>
+<p><em>oblique</em>, boolean statements + logic connectives + arithmetic comparisons</p>
+</li>
+<li>
+<p><em>M-of-N</em>, any of the above + statements of the form “at least $k$ of the following statements are true”</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="discussion">Discussion</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 id="notable-remarks"><strong>Notable remarks</strong></h3>
+<ul>
+<li>
+<p>discretisation of the input space</p>
+</li>
+<li>
+<p>discretisation of the output space</p>
+</li>
+<li>
+<p>features should have semantic meaning</p>
+</li>
+<li>
+<p>rules constitutes global explanations</p>
+</li>
+</ul>
+</div>
+<div class="col "><h3 id="limitations"><strong>Limitations</strong></h3>
+<ul>
+<li>
+<p>tabular data as input, no images</p>
+</li>
+<li>
+<p>high dimensional datasets could lead to poorly readable rules</p>
+</li>
+<li>
+<p>high variable input spaces could do the same</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="future-research-activities">Future research activities</h2>
+<ul>
+<li>
+<p>target images or highly dimensional data in general</p>
+</li>
+<li>
+<p>target reinforcement learning (when based on NN)</p>
+</li>
+<li>
+<p>target unsupervised learning</p>
+</li>
+<li>
+<p>design and prototype your own extraction algorithm</p>
+</li>
+</ul>
+
+</section>
+</section>
+
+<section data-noprocess="" data-shortcode-slide="" id="ski">
+  
+<h1 id="symbolic-knowledge-injection-ski">Symbolic Knowledge Injection (SKI)</h1>
+<p>How to inject symbolic knowledge into sub-symbolic predictors</p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="definition-and-motivation-pt-1">Definition and Motivation (pt. 1)</h2>
+<blockquote>
+<p>Any algorithmic procedure affecting how sub-symbolic predictors draw their inferences in such a way that predictions are either <em>computed</em> as a function of, or <em>made consistent</em> with, some given symbolic knowledge.</p></blockquote>
+</section><section>
+<h2 id="definition-and-motivation-pt-2">Definition and Motivation (pt. 2)</h2>
+<ul>
+<li>
+<p><strong>Improve predictive performance</strong>: by injecting symbolic knowledge, we can</p>
+<ul>
+<li><em>guide</em> the learning process in order to <em>penalise</em> inconsistencies with the symbolic knowledge, or</li>
+<li><em>structure</em> the model’s architecture to <em>mimic</em> the symbolic knowledge</li>
+</ul>
+</li>
+<li>
+<p><strong>Enhance interpretability</strong>: with SKI we can make predictors that are</p>
+<ul>
+<li>interpretable by <em>transparent box design</em>, as they are built to mimic symbolic knowledge</li>
+<li>interpretable using <em>symbols as constraints</em>, as they are built to respect symbolic knowledge</li>
+</ul>
+</li>
+<li>
+<p><strong>Robustness to data degradation</strong>: symbolic knowledge can help sub-symbolic models maintain performance even in the presence of noisy or scarcity of data</p>
+</li>
+<li>
+<p><strong>Enhance fairness</strong>: by incorporating symbolic knowledge about fairness constraints, we can ensure that sub-symbolic models make decisions that align with ethical considerations</p>
+</li>
+<li>
+<p><strong>And more</strong>: SKI can simplify the predictor’s architecture, in particular it can reduce the number of weights in a neural network, thus improving its efficiency and reducing the risk of overfitting</p>
+</li>
+</ul>
+</section><section>
+<h2 id="concepts">Concepts</h2>
+<p>Main entities and how to inject symbolic knowledge into sub-symbolic predictors</p>
+</section><section>
+<h2 id="entities">Entities</h2>
+<ul>
+<li>
+<p><strong>Predictor</strong>: a sub-symbolic model that makes predictions based on input data, usually a neural network</p>
+</li>
+<li>
+<p><strong>Symbolic knowledge</strong>: structured, formal knowledge that can be represented in a symbolic form. The most common forms of symbolic knowledge are</p>
+<ul>
+<li><em>Propositional logic</em>, simple rules with if-then structure</li>
+<li><em>Datalog</em>, a subset of first-order logic with no function symbols, only constants and variables</li>
+</ul>
+</li>
+<li>
+<p><strong>Fuzzification</strong>: the process of converting symbolic knowledge into a form that can be used by sub-symbolic predictors, e.g. by assigning degrees of truth to symbolic statements</p>
+</li>
+<li>
+<p><strong>Injector</strong>: the main component that injects symbolic knowledge into the predictor, by modifying its architecture, its training process or by other means</p>
+</li>
+</ul>
+</section><section>
+<h2 id="structuring">Structuring</h2>
+<img src="./images/workflow-structuring.svg" alt="Overview of structuring injection mechanism" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+</section><section>
+<h2 id="constraining">Constraining</h2>
+<img src="./images/workflow-constraining.svg" alt="Overview of constraining injection mechanism" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+</section><section>
+<h2 id="embedding">Embedding</h2>
+<img src="./images/workflow-embedding.svg" alt="Overview of embedding injection mechanism" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+
+</section>
+</section><section>
+<h2 id="overview-1">Overview</h2>
+<p>SKI methods: theory and practice</p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="knowledge-injection-via-network-structuring-kins">Knowledge injection via Network Structuring (KINS)</h2>
+<p>(ref. <a href="https://doi.org/10.1093/LOGCOM/EXAD037">Magnini et al., 2023</a>)</p>
+</section><section>
+<h2 id="fuzzification">Fuzzification</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Formula</th>
+          <th>C. interpretation</th>
+          <th>Formula</th>
+          <th>C. interpretation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$[[ \neg \phi ]]$</td>
+          <td>$\eta(1 - [[ \phi ]])$</td>
+          <td>$[[ \phi \le \psi ]]$</td>
+          <td>$\eta(1 + [[ \psi ]] - [[ \phi ]])$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi \wedge \psi ]]$</td>
+          <td>$\eta(\min([[ \phi ]], [[ \psi ]]))$</td>
+          <td>$[[ class(\bar{X}, {y}_i) \leftarrow \psi ]]$</td>
+          <td>$[[ \psi ]]^{*}$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi \vee \psi ]]$</td>
+          <td>$\eta(\max([[ \phi ]], [[ \psi ]]))$</td>
+          <td>$[[ \text{expr}(\bar{X}) ]]$</td>
+          <td>$\text{expr}([[ \bar{X} ]])$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi = \psi ]]$</td>
+          <td>$\eta([[ \neg( \phi \ne \psi ) ]])$</td>
+          <td>$[[ \mathtt{true} ]]$</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi \ne \psi ]]$</td>
+          <td>$\eta(| [[ \phi ]] - [[ \psi ]]|)$</td>
+          <td>$[[ \mathtt{false} ]]$</td>
+          <td>$0$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi &gt; \psi ]]$</td>
+          <td>$\eta(\max(0, \frac{1}{2} + [[ \phi ]] - [[ \psi ]]))$</td>
+          <td>$[[ X ]]$</td>
+          <td>$x$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi \ge \psi ]]$</td>
+          <td>$\eta(1 + [[ \phi ]] - [[ \psi ]])$</td>
+          <td>$[[ k ]]$</td>
+          <td>$k$</td>
+      </tr>
+      <tr>
+          <td>$[[ \phi &lt; \psi ]]$</td>
+          <td>$\eta(\max(0, \frac{1}{2} + [[ \psi ]] - [[ \phi ]]))$</td>
+          <td>$[[ p(\bar{X}) ]]^{**}$</td>
+          <td>$[[ \psi_1 \vee \ldots \vee \psi_k ]]$</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>$^{*}$ encodes the value for the $i^{\text{th}}$ output<br>
+$^{**}$ assuming $p$ is defined by $k$ clauses of the form:<br>
+${p}(\bar{X}) \leftarrow \psi_1,\ \ldots,\ {p}(\bar{X}) \leftarrow \psi_k$</p></blockquote>
+</section><section>
+<h2 id="injector-pt1">Injector (pt.1)</h2>
+<img src="./images/neurons.svg" alt="Example of one possible mapping between the continuous interpretation of a symbolic formula and the neurons" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+</section><section>
+<h2 id="injector-pt-2">Injector (pt. 2)</h2>
+<img src="./images/net-architecture.svg" alt="Example of a neural network architecture with an injector" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="practical-example-with-kins">Practical example with KINS</h2>
+<p>The primate splice-junction gene sequences dataset (PSJGS)</p>
+</section><section>
+<h2 id="psjgs-classification-task">PSJGS classification task</h2>
+<p>The PSJGS dataset is a collection of DNA sequences from primate splice junction genes, where the task is to classify each sequence as either an <em>exon-intron</em> (EI) or an <em>intron-exon</em> (IE) sequence, or as <em>not applicable</em> (N).</p>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><div style="text-align: center;">Classification rules</div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span>EI-stop ::- @-3 'TAA'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-3 'TAG'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-3 'TGA'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-4 'TAA'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-4 'TAG'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-4 'TGA'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-5 'TAA'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-5 'TAG'.
+</span></span><span style="display:flex;"><span>EI-stop ::- @-5 'TGA'.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IE-stop ::- @1 'TAA'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @1 'TAG'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @1 'TGA'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @2 'TAA'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @2 'TAG'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @2 'TGA'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @3 'TAA'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @3 'TAG'.
+</span></span><span style="display:flex;"><span>IE-stop ::- @3 'TGA'.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pyramidine-rich :- 6 of (@-15 'YYYYYYYYYY').
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>EI :- @-3 'MAGGTRAGT', not(EI-stop).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IE :- pyramidine-rich, @-3 'YAGG', not(IE-stop).
+</span></span></code></pre></div></div>
+<div class="col "><div style="text-align: center;">Examples of DNA sequences</div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#4e9a06">Class</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06"> Id</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06"> DNA-sequence</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">EI</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">ATRINS-DONOR-521</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">CCAGCTGCAT...AGCCAGTCTG</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">EI</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">ATRINS-DONOR-905</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">AGACCCGCCG...GTGCCCCCGC</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">EI</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">BABAPOE-DONOR-30</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">GAGGTGAAGG...CACGGGGATG</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">...</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">IE</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">ATRINS-ACCEPTOR-701</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">TTCAGCGGCC...GCCCTGTGGA</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">IE</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">ATRINS-ACCEPTOR-1678</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">GGACCTGCTC...GGGGGCTCTA</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">IE</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">BABAPOE-ACCEPTOR-801</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">GCGGTTGATT...AAGATGAAGG</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">...</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">N</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">AGMKPNRSB-NEG-1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">CAAAAGAACA...CAAGGCTACA</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">N</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">AGMORS12A-NEG-181</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">AGGGAGGTGT...GGGCATGGGG</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">N</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">AGMORS9A-NEG-481</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">TGGTCAATTC...TCTTGCTCTG</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">...</span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">
+</span></span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold"></span><span style="color:#4e9a06">3190 Records</span><span style="color:#000;font-weight:bold">
+</span></span></span></code></pre></div></div>
+</div>
+</div>
+</section><section>
+<h2 id="logic-rules-to-inject-pt-1">Logic rules to inject (pt. 1)</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Class</th>
+          <th style="text-align: left">Logic rules</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">EI</td>
+          <td style="text-align: left">$class(\bar{X}, ei) ← X_{-3} = m ∧ X_{-2} = a ∧ X_{-1} = g ∧ X_{+1} = g ∧ X_{+2} = t ∧{} $ <br> <span style="padding-left: 7.5em;"></span> $X_{+3} = a = r ∧ X_{+4} = a ∧ X_{+5} = g ∧ X_{+6} = t ∧ ¬(eiStop(\bar{X}))$ <br><br> $eiStop(\bar{X}) ← X_{-3} = t ∧ X_{-2} = a ∧ X_{-1} = a$ <br> $eiStop(\bar{X}) ← X_{-3} = t ∧ X_{-2} = a ∧ X_{-1} = g$ <br> $eiStop(\bar{X}) ← X_{-3} = t ∧ X_{-2} = g ∧ X_{-1} = a$ <br> $eiStop(\bar{X}) ← X_{-4} = t ∧ X_{-3} = a ∧ X_{-2} = a$ <br> $eiStop(\bar{X}) ← X_{-4} = t ∧ X_{-3} = a ∧ X_{-2} = g$ <br> $eiStop(\bar{X}) ← X_{-4} = t ∧ X_{-3} = g ∧ X_{-2} = a$ <br> $eiStop(\bar{X}) ← X_{-5} = t ∧ X_{-4} = a ∧ X_{-3} = a$ <br> $eiStop(\bar{X}) ← X_{-5} = t ∧ X_{-4} = a ∧ X_{-3} = g$ <br> $eiStop(\bar{X}) ← X_{-5} = t ∧ X_{-4} = g ∧ X_{-3} = a$</td>
+      </tr>
+  </tbody>
+</table>
+</section><section>
+<h2 id="logic-rules-to-inject-pt-2">Logic rules to inject (pt. 2)</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Class</th>
+          <th style="text-align: left">Logic rules</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">IE</td>
+          <td style="text-align: left">$class(\bar{X}, ie) ← pyramidineRich(\bar{X}) ∧ ¬(ieStop(\bar{X})) ∧ X_{-3} = y ∧ X_{-2} = a ∧ X_{-1} = g ∧ X_{+1} = g$ <br><br> $pyramidineRich(\bar{X}) ← 6 ≤ (X_{-15} = y + … + X_{-6} = y)$ <br><br> $ieStop(\bar{X}) ← X_{+2} = t ∧ X_{+3} = a ∧ X_{+4} = a$ <br> $ieStop(\bar{X}) ← X_{+2} = t ∧ X_{+3} = a ∧ X_{+4} = g$ <br> $ieStop(\bar{X}) ← X_{+2} = t ∧ X_{+3} = g ∧ X_{+4} = a$ <br> $ieStop(\bar{X}) ← X_{+3} = t ∧ X_{+4} = a ∧ X_{+5} = a$ <br> $ieStop(\bar{X}) ← X_{+3} = t ∧ X_{+4} = a ∧ X_{+5} = g$ <br> $ieStop(\bar{X}) ← X_{+3} = t ∧ X_{+4} = g ∧ X_{+5} = a$ <br> $ieStop(\bar{X}) ← X_{+4} = t ∧ X_{+5} = a ∧ X_{+6} = a$ <br> $ieStop(\bar{X}) ← X_{+4} = t ∧ X_{+5} = a ∧ X_{+6} = g$ <br> $ieStop(\bar{X}) ← X_{+4} = t ∧ X_{+5} = g ∧ X_{+6} = a$</td>
+      </tr>
+  </tbody>
+</table>
+</section><section>
+<h2 id="jump-to-the-code">Jump to the code!</h2>
+<p>TBD!!!</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="knowledge-injection-via-lambda-layer-kill">Knowledge injection via Lambda Layer (KILL)</h2>
+<p>(ref. <a href="https://ceur-ws.org/Vol-3261/paper5.pdf">Magnini et al., 2022</a>)</p>
+</section><section>
+<h2 id="fuzzification">Fuzzification</h2>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Formula</strong></th>
+          <th><strong>C. interpretation</strong></th>
+          <th></th>
+          <th><strong>Formula</strong></th>
+          <th><strong>C. interpretation</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>[[\neg \phi]]</td>
+          <td>$\eta(1 - [[\phi]])$</td>
+          <td></td>
+          <td>[[\phi \le \psi]]</td>
+          <td>$\eta([[\phi]] - [[\psi]])$</td>
+      </tr>
+      <tr>
+          <td>[[\phi \wedge \psi]]</td>
+          <td>$\eta(\max([[\phi]], [[\psi]]))$</td>
+          <td></td>
+          <td>$[\mathrm{class}(\bar{X}, {y}_i) \leftarrow \psi]]$</td>
+          <td>$[[\psi]]^{*}$</td>
+      </tr>
+      <tr>
+          <td>[[\phi \vee \psi]]</td>
+          <td>$\eta(\min([[\phi]], [[\psi]]))$</td>
+          <td></td>
+          <td>$[\text{expr}(\bar{X})]]$</td>
+          <td>$\text{expr}([[\bar{X}]])$</td>
+      </tr>
+      <tr>
+          <td>[[\phi = \psi]]</td>
+          <td>$\eta(\left\lvert [[\phi]] - [[\psi]] \right\rvert)$</td>
+          <td></td>
+          <td>$[[\mathtt{true}]]$</td>
+          <td>$0$</td>
+      </tr>
+      <tr>
+          <td>[[\phi \ne \psi]]</td>
+          <td>$[[\neg(\phi = \psi)]]$</td>
+          <td></td>
+          <td>$[[\mathtt{false}]]$</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>[[\phi &gt; \psi]]</td>
+          <td>$\eta(\frac{1}{2} - [[\phi]] + [[\psi]])$</td>
+          <td></td>
+          <td>$[[X]]$</td>
+          <td>$x$</td>
+      </tr>
+      <tr>
+          <td>[[\phi \ge \psi]]</td>
+          <td>$\eta([[\psi]] - [[\phi]])$</td>
+          <td></td>
+          <td>$[[{k}]]$</td>
+          <td>$k$</td>
+      </tr>
+      <tr>
+          <td>[[\phi &lt; \psi]]</td>
+          <td>$\eta(\frac{1}{2} + [[\phi]] - [[\psi]])$</td>
+          <td></td>
+          <td>$[\mathrm{p}(\bar{X})]]^{**}$</td>
+          <td>$[[\psi_1 \vee \ldots \vee \psi_k]]$</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>$^{*}$ encodes the penalty for the $i^{\text{th}}$ neuron<br>
+$^{**}$ assuming predicate $p$ is defined by $k$ clauses of the form:<br>
+${p}(\bar{X}) \leftarrow \psi_1,\ \ldots,\ {p}(\bar{X}) \leftarrow \psi_k$</p></blockquote>
+</section><section>
+<h2 id="injector-pt1">Injector (pt.1)</h2>
+<p><em>Cost function</em>: whenever the neural network wrongly predicts a class and violates the prior knowledge a cost proportional to the violation is added.
+In this way the output of the network differs more from the expected one and this affects the back propagation step.
+<br><br></p>
+<div style="border: 1px solid #ddd; padding: 1em; background-color: #f9f9f9; border-radius: 8px; overflow-x: auto;">
+$$
+\begin{aligned}
+Y' &amp;= f(Y, \mathrm{cost}) \\\\
+f &amp;= Y \times (\mathbf{1} + \mathrm{cost}) \\\\
+\mathrm{cost}(X, Y) &amp;= \eta(\mathrm{p}(X) - (\mathbf{1} - Y)) \quad \text{(}\mathbf{1} - Y\text{ because 0 means true)}
+\end{aligned}
+$$
+</div>
+</section><section>
+<h2 id="injector-pt-2">Injector (pt. 2)</h2>
+<img src="./images/lambda-layer.svg" alt="Example of a neural network architecture with a lambda layer" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="practical-example-with-kill">Practical example with KILL</h2>
+<p>The poker hand data set (PHDS)</p>
+</section><section>
+<h2 id="phds-classification-task">PHDS classification task</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><div style="margin-top: 25vh; margin-left: 5vw;">
+<ul>
+<li>
+<p>Each record represents one poker hand</p>
+</li>
+<li>
+<p>5 cards identified by 2 values: suit and rank</p>
+</li>
+<li>
+<p>Classes: 10</p>
+</li>
+<li>
+<p>Training set: 25.010</p>
+</li>
+<li>
+<p>Test set: 1.000.000</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="col "><table>
+  <thead>
+      <tr>
+          <th><strong>id</strong></th>
+          <th><strong>S1</strong></th>
+          <th><strong>R1</strong></th>
+          <th><strong>S2</strong></th>
+          <th><strong>R2</strong></th>
+          <th><strong>S3</strong></th>
+          <th><strong>R3</strong></th>
+          <th><strong>S4</strong></th>
+          <th><strong>R4</strong></th>
+          <th><strong>S5</strong></th>
+          <th><strong>R5</strong></th>
+          <th><strong>class</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>10</td>
+          <td>1</td>
+          <td>11</td>
+          <td>1</td>
+          <td>13</td>
+          <td>1</td>
+          <td>12</td>
+          <td>1</td>
+          <td>1</td>
+          <td>9</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>2</td>
+          <td>11</td>
+          <td>2</td>
+          <td>13</td>
+          <td>2</td>
+          <td>10</td>
+          <td>2</td>
+          <td>12</td>
+          <td>2</td>
+          <td>1</td>
+          <td>9</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>3</td>
+          <td>12</td>
+          <td>3</td>
+          <td>11</td>
+          <td>3</td>
+          <td>13</td>
+          <td>3</td>
+          <td>10</td>
+          <td>3</td>
+          <td>1</td>
+          <td>9</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>4</td>
+          <td>10</td>
+          <td>4</td>
+          <td>11</td>
+          <td>4</td>
+          <td>1</td>
+          <td>4</td>
+          <td>13</td>
+          <td>4</td>
+          <td>12</td>
+          <td>9</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>4</td>
+          <td>1</td>
+          <td>4</td>
+          <td>13</td>
+          <td>4</td>
+          <td>12</td>
+          <td>4</td>
+          <td>11</td>
+          <td>4</td>
+          <td>10</td>
+          <td>9</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+          <td>4</td>
+          <td>1</td>
+          <td>5</td>
+          <td>1</td>
+          <td>3</td>
+          <td>1</td>
+          <td>6</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>1</td>
+          <td>9</td>
+          <td>1</td>
+          <td>12</td>
+          <td>1</td>
+          <td>10</td>
+          <td>1</td>
+          <td>11</td>
+          <td>1</td>
+          <td>13</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>2</td>
+          <td>1</td>
+          <td>2</td>
+          <td>2</td>
+          <td>2</td>
+          <td>3</td>
+          <td>2</td>
+          <td>4</td>
+          <td>2</td>
+          <td>5</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>3</td>
+          <td>5</td>
+          <td>3</td>
+          <td>6</td>
+          <td>3</td>
+          <td>9</td>
+          <td>3</td>
+          <td>7</td>
+          <td>3</td>
+          <td>8</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>4</td>
+          <td>1</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+          <td>2</td>
+          <td>4</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>8</td>
+      </tr>
+      <tr>
+          <td>11</td>
+          <td>1</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+          <td>3</td>
+          <td>9</td>
+          <td>1</td>
+          <td>5</td>
+          <td>2</td>
+          <td>3</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>12</td>
+          <td>2</td>
+          <td>6</td>
+          <td>2</td>
+          <td>1</td>
+          <td>4</td>
+          <td>13</td>
+          <td>2</td>
+          <td>4</td>
+          <td>4</td>
+          <td>9</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>13</td>
+          <td>1</td>
+          <td>10</td>
+          <td>4</td>
+          <td>6</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+          <td>3</td>
+          <td>8</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>14</td>
+          <td>2</td>
+          <td>13</td>
+          <td>2</td>
+          <td>1</td>
+          <td>4</td>
+          <td>4</td>
+          <td>1</td>
+          <td>5</td>
+          <td>2</td>
+          <td>11</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>15</td>
+          <td>3</td>
+          <td>8</td>
+          <td>4</td>
+          <td>12</td>
+          <td>3</td>
+          <td>9</td>
+          <td>4</td>
+          <td>2</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="logic-rules-to-inject-pt-1">Logic rules to inject (pt. 1)</h2>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Class</strong></th>
+          <th><strong>Logic Formulation</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Pair</strong></td>
+          <td><code>class(R₁, ..., S₅, pair) ← pair(R₁, ..., S₅)</code><br><code>pair(R₁, ..., S₅) ← R₁ = R₂</code><br><code>pair(R₁, ..., S₅) ← R₁ = R₃</code><br><code>pair(R₁, ..., S₅) ← R₁ = R₄</code><br><code>pair(R₁, ..., S₅) ← R₁ = R₅</code><br><code>pair(R₁, ..., S₅) ← R₂ = R₃</code><br><code>pair(R₁, ..., S₅) ← R₂ = R₄</code><br><code>pair(R₁, ..., S₅) ← R₂ = R₅</code><br><code>pair(R₁, ..., S₅) ← R₃ = R₄</code><br><code>pair(R₁, ..., S₅) ← R₃ = R₅</code><br><code>pair(R₁, ..., S₅) ← R₄ = R₅</code></td>
+      </tr>
+  </tbody>
+</table>
+</section><section>
+<h2 id="logic-rules-to-inject-pt-2">Logic rules to inject (pt. 2)</h2>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Class</strong></th>
+          <th><strong>Logic Formulation</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Two Pairs</strong></td>
+          <td><code>class(R₁, ..., S₅, two) ← two(R₁, ..., S₅)</code><br><code>two(R₁, ..., S₅) ← R₁ = R₂ ∧ R₃ = R₄</code><br><code>two(R₁, ..., S₅) ← R₁ = R₃ ∧ R₂ = R₄</code><br><code>two(R₁, ..., S₅) ← R₁ = R₄ ∧ R₂ = R₃</code><br><code>two(R₁, ..., S₅) ← R₁ = R₂ ∧ R₃ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₃ ∧ R₃ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₅ ∧ R₂ = R₃</code><br><code>two(R₁, ..., S₅) ← R₁ = R₂ ∧ R₄ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₄ ∧ R₂ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₅ ∧ R₂ = R₄</code><br><code>two(R₁, ..., S₅) ← R₁ = R₃ ∧ R₄ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₄ ∧ R₃ = R₅</code><br><code>two(R₁, ..., S₅) ← R₁ = R₅ ∧ R₃ = R₄</code><br><code>two(R₁, ..., S₅) ← R₂ = R₃ ∧ R₄ = R₅</code><br><code>two(R₁, ..., S₅) ← R₂ = R₄ ∧ R₃ = R₅</code><br><code>two(R₁, ..., S₅) ← R₂ = R₅ ∧ R₃ = R₄</code></td>
+      </tr>
+  </tbody>
+</table>
+</section><section>
+<h2 id="logic-rules-to-inject-pt-3">Logic rules to inject (pt. 3)</h2>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Class</strong></th>
+          <th><strong>Logic Formulation</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Three of a Kind</strong></td>
+          <td><code>class(R₁, ..., S₅, three) ← three(R₁, ..., S₅)</code><br><code>three(R₁, ..., S₅) ← R₁ = R₂ ∧ R₁ = R₃</code><br><code>three(R₁, ..., S₅) ← R₁ = R₂ ∧ R₁ = R₄</code><br><code>three(R₁, ..., S₅) ← R₁ = R₂ ∧ R₁ = R₅</code><br><code>three(R₁, ..., S₅) ← R₁ = R₃ ∧ R₁ = R₄</code><br><code>three(R₁, ..., S₅) ← R₁ = R₃ ∧ R₁ = R₅</code><br><code>three(R₁, ..., S₅) ← R₁ = R₄ ∧ R₁ = R₅</code><br><code>three(R₁, ..., S₅) ← R₂ = R₃ ∧ R₂ = R₄</code><br><code>three(R₁, ..., S₅) ← R₂ = R₃ ∧ R₂ = R₅</code><br><code>three(R₁, ..., S₅) ← R₂ = R₄ ∧ R₂ = R₅</code><br><code>three(R₁, ..., S₅) ← R₃ = R₄ ∧ R₃ = R₅</code></td>
+      </tr>
+      <tr>
+          <td><strong>Flush</strong></td>
+          <td><code>class(R₁, ..., S₅, flush) ← flush(R₁, ..., S₅)</code><br><code>flush(R₁, ..., S₅) ← S₁ = S₂ ∧ S₁ = S₃ ∧ S₁ = S₄ ∧ S₁ = S₅</code></td>
+      </tr>
+  </tbody>
+</table>
+</section><section>
+<h2 id="jump-to-the-code">Jump to the code!</h2>
+<p>TBD!!!</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="taxonomy-of-ski-methods-pt-1">Taxonomy of SKI methods (pt. 1)</h2>
+<img src="./images/ski-taxonomy.svg" alt="Taxonomy of SKI methods" style="width: 80%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
+</section><section>
+<h2 id="taxonomy-of-ski-methods-pt-2">Taxonomy of SKI methods (pt. 2)</h2>
+<ul>
+<li>
+<p><strong>input knowledge</strong>: how is the knowledge to-be-injected represented?</p>
+<ul>
+<li>commonly, some sub-set of first-order logic (FOL)</li>
+</ul>
+</li>
+<li>
+<p><strong>target predictor</strong>: which predictors can knowledge be injected into?</p>
+<ul>
+<li>mostly, neural networks</li>
+</ul>
+</li>
+<li>
+<p><strong>strategy</strong>: how does injection actually work?</p>
+<ul>
+<li><em>guided learning</em>: the input knowledge is used to <em>guide the training</em> process</li>
+<li><em>structuring</em>: the <em>internal</em> composition of the predictor is <em>(re-)structured</em> to reflect the input knowledge</li>
+<li><em>embedding</em>: the input knowledge is <em>converted</em> into numeric array form</li>
+</ul>
+</li>
+<li>
+<p><strong>purpose</strong>: why is knowledge injected in the first place?</p>
+<ul>
+<li><em>knowledge manipulation</em>: improve / extend / reason about symbol knowledge—subsymbolically</li>
+<li><em>learning support</em>: improve the sub-symbolic predictor (e.g. speed, size, etc.)</li>
+</ul>
+</li>
+</ul>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="discussion">Discussion</h2>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><h3 style="text-align: center; color: blue">
+Notable remarks
+</h3>
+<ul>
+<li>
+<p>Knowledge should express relations about input-output pairs</p>
+</li>
+<li>
+<p>embedding implies <em>extensional</em> representation of knowledge</p>
+</li>
+<li>
+<p>guided learning and structuring support <em>intensional</em> knowledge</p>
+</li>
+<li>
+<p>propositional knowledge implies binarising the I/O space</p>
+</li>
+</ul>
+</div>
+<div class="col "><h3 style="text-align: center; color: blue">
+Limitations
+</h3>
+<ul>
+<li>
+<p>Recursive data structures are natively not supported</p>
+</li>
+<li>
+<p>extensional representation cost storage</p>
+</li>
+<li>
+<p>guided learning works poorly with lacking data</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="future-research-activities">Future research activities</h2>
+<ul>
+<li>
+<p><em>foundational</em><br> address recursion</p>
+</li>
+<li>
+<p><em>practical</em><br> find a language that is a good balance between expressiveness and ease of use</p>
+</li>
+<li>
+<p><em>target</em><br> apply to large language models</p>
+</li>
+</ul>
+
+</section>
 </section>
 
   
