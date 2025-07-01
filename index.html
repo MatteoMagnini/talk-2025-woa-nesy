@@ -29,7 +29,7 @@
 
 <section data-shortcode-section="">
 <h1 id="symbolic-knowledge-extraction-and-injectiontheory-and-methods">Symbolic Knowledge Extraction and Injection:<br>Theory and Methods</h1>
-<p><span class="hint">(last built on: 2025-06-30)</span></p>
+<p><span class="hint">(last built on: 2025-07-01)</span></p>
 <p><a href="mailto:giovanni.ciatto@unibo.it">Giovanni Ciatto</a> and <a href="mailto:matteo.magnini@unibo.it">Matteo Magnini</a>
 <br>Dipartimento di Informatica — Scienza e Ingegneria (DISI), Sede di Cesena,
 <br> Alma Mater Studiorum—Università di Bologna</p>
@@ -102,6 +102,68 @@ project funded by the Italian MUR program “PRIN 2022” under grant number 202
 
 <img src="./images/ai-map2.svg" alt="AI map with a focus on symbolic vs sub-symbolic" style="width: 100%; max-width: 95vw; max-height: 80vh; object-fit: contain; ">
 
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-1">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 1)</h2>
+<h3 id="local-vs-distributed-representations">Local vs. Distributed Representations</h3>
+<div class="container w-100 m-0 p-0">
+    <div class="row "><div class="col "><img src="./images/local-distributed-representations.png" alt="Local vs. Distributed Representations of a bunch of animals" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
+</div>
+<div class="col "><br>
+<ul>
+<li>
+<p><strong>Local</strong> $\approx$ “symbolic”: each symbol has a clear, distinct meaning</p>
+<ul>
+<li>e.g. <code>"bear"</code> is a symbol denoting a crisp category (either the animal is a bear or not)</li>
+</ul>
+</li>
+<li>
+<p><strong>Distributed</strong> $\approx$ “non-symbolic”: symbols do not have a clear meaning per se, but the whole representation does</p>
+<ul>
+<li>e.g. <code>"swim"</code> is fuzzy capability: one animal may be (un)able to swim to some extent</li>
+</ul>
+</li>
+</ul>
+<br>
+<span class="fragment ">
+  <blockquote>
+<p>Let’s say we need to represent $N$ classes, how many columns would the tables have?</p></blockquote>
+</span>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-2">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 2)</h2>
+<h3 id="what-is-a-symbol-after-all-arent-numbers-symbols-too">What is a “symbol” after all? Aren’t numbers symbols too?</h3>
+<p>According to <a href="https://doi.org/10.1007/978-3-642-76070-9_6">Tim van Gelder in 1990</a>:</p>
+<blockquote>
+<p><strong>Symbolic</strong> representations of knowledge</p>
+<ul>
+<li>involve a <em>set of symbols</em></li>
+<li>which can be <em>combined</em> (e.g., concatenated) in (possibly) infinitely many ways,</li>
+<li>following precise <em>syntactical rules</em>,</li>
+<li>where both elementary symbols and any admissible combination of them can be <em>assigned with meaning</em></li>
+</ul></blockquote>
+</section><section>
+<h2 id="why-sub-symbolic-instead-of-non-symbolic-or-just-numerical">Why “<em>Sub</em>-symbolic” instead of “Non-symbolic” or just “Numerical”?</h2>
+<ul>
+<li>
+<p>There exist approaches where symbols are combined with numbers, e.g.:</p>
+<ul>
+<li><strong>Probabilistic logic programming</strong>: where logic statements are combined with probabilities</li>
+<li><strong>Fuzzy logic</strong>: where logic statements are combined with degrees of truth</li>
+<li><strong>Bayesian networks</strong>: a.k.a. graphical models, where nodes are symbols and edges are conditional dependencies with probabilities, e.g.
+<img src="./images/bn.png" alt="Example of a Bayesian network"></li>
+</ul>
+</li>
+<li>
+<p>These approaches are <em>not purely symbolic</em>, but they are <em>not purely numeric</em> either, so we call the overall category <strong>“sub-symbolic”</strong></p>
+</li>
+</ul>
+
+</section>
 </section><section>
 
 
@@ -237,68 +299,6 @@ project funded by the Italian MUR program “PRIN 2022” under grant number 202
 <p><strong>Unclear computational complexity</strong>: strong reliance on greedy or time-limited optimization methods, lack of theoretical guarantees on the quality of the results</p>
 </li>
 </ul>
-</section><section>
-
-
-<section data-shortcode-section="">
-<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-1">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 1)</h2>
-<h3 id="local-vs-distributed-representations">Local vs. Distributed Representations</h3>
-<div class="container w-100 m-0 p-0">
-    <div class="row "><div class="col "><img src="./images/local-distributed-representations.png" alt="Local vs. Distributed Representations of a bunch of animals" style="width: 100%; max-width: 95vw; max-height: 60vh; object-fit: contain; ">
-</div>
-<div class="col "><br>
-<ul>
-<li>
-<p><strong>Local</strong> $\approx$ “symbolic”: each symbol has a clear, distinct meaning</p>
-<ul>
-<li>e.g. <code>"bear"</code> is a symbol denoting a crisp category (either the animal is a bear or not)</li>
-</ul>
-</li>
-<li>
-<p><strong>Distributed</strong> $\approx$ “non-symbolic”: symbols do not have a clear meaning per se, but the whole representation does</p>
-<ul>
-<li>e.g. <code>"swim"</code> is fuzzy capability: one animal may be (un)able to swim to some extent</li>
-</ul>
-</li>
-</ul>
-<br>
-<span class="fragment ">
-  <blockquote>
-<p>Let’s say we need to represent $N$ classes, how many columns would the tables have?</p></blockquote>
-</span>
-</div>
-</div>
-</div>
-</section><section>
-<h2 id="why-the-wording-symbolic-vs-sub-symbolic-pt-2">Why the wording “Symbolic” vs. “Sub-symbolic”? (pt. 2)</h2>
-<h3 id="what-is-a-symbol-after-all-arent-numbers-symbols-too">What is a “symbol” after all? Aren’t numbers symbols too?</h3>
-<p>According to <a href="https://doi.org/10.1007/978-3-642-76070-9_6">Tim van Gelder in 1990</a>:</p>
-<blockquote>
-<p><strong>Symbolic</strong> representations of knowledge</p>
-<ul>
-<li>involve a <em>set of symbols</em></li>
-<li>which can be <em>combined</em> (e.g., concatenated) in (possibly) infinitely many ways,</li>
-<li>following precise <em>syntactical rules</em>,</li>
-<li>where both elementary symbols and any admissible combination of them can be <em>assigned with meaning</em></li>
-</ul></blockquote>
-</section><section>
-<h2 id="why-sub-symbolic-instead-of-non-symbolic-or-just-numerical">Why “<em>Sub</em>-symbolic” instead of “Non-symbolic” or just “Numerical”?</h2>
-<ul>
-<li>
-<p>There exist approaches where symbols are combined with numbers, e.g.:</p>
-<ul>
-<li><strong>Probabilistic logic programming</strong>: where logic statements are combined with probabilities</li>
-<li><strong>Fuzzy logic</strong>: where logic statements are combined with degrees of truth</li>
-<li><strong>Bayesian networks</strong>: a.k.a. graphical models, where nodes are symbols and edges are conditional dependencies with probabilities, e.g.
-<img src="./images/bn.png" alt="Example of a Bayesian network"></li>
-</ul>
-</li>
-<li>
-<p>These approaches are <em>not purely symbolic</em>, but they are <em>not purely numeric</em> either, so we call the overall category <strong>“sub-symbolic”</strong></p>
-</li>
-</ul>
-
-</section>
 </section><section>
 <h2 id="long-standing-dualism">Long-standing dualism</h2>
 <h3 id="intuition-vs-reasoning">Intuition vs. Reasoning</h3>
