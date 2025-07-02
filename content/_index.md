@@ -1342,3 +1342,38 @@ Limitations
 - _target_<br> apply to large language models
 
 {{% /section %}}
+
+---
+
+## Let's keep in touch!
+
+The talk is over, I hope you enjoyed it
+
+{{% multicol %}}
+
+{{% col %}}
+
+{{% /col %}}
+
+{{% col %}}
+
+{{< image src="./images/matteo.png" alt="Matteo Magnini" width="100%" max-h="50vh" >}}
+
+{{% /col %}}
+
+{{% col %}}
+
+📫 [Unibo email](mailto:matteo.magnini@unibo.it)
+<br>
+
+💻 [GitHub](https://github.com/MatteoMagnini)
+<br>
+
+✒️ [Linkedin](https://www.linkedin.com/in/matteo-magnini/)
+<br>
+
+🏢  [Research group](https://pslab-unibo.github.io/)
+
+{{% /col %}}
+
+{{% /multicol %}}
